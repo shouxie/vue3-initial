@@ -1,8 +1,8 @@
 <template>
-  <a-layout-header :class="[theme, 'global-header']">
+  <a-layout-header :style="{height: '56px', lineHeight: '56px'}" :class="[theme, 'global-header']">
     <div :class="['global-header-wide', layout]">
       <router-link v-if="isMobile || layout === 'head'" to="/" :class="['logo', isMobile ? null : 'pc', theme]">
-        <img width="32" src="static/img/vue-antd-logo.png" />
+        <img width="32" src="../assets/logo.png" />
         <h1 v-if="!isMobile">{{systemName}}</h1>
       </router-link>
       <a-divider v-if="isMobile" type="vertical" />
@@ -62,7 +62,7 @@ export default {
 <style lang="less" scoped>
   .trigger {
     font-size: 20px;
-    line-height: 64px;
+    line-height: 56px;
     padding: 0 24px;
     cursor: pointer;
     transition: color .3s;
@@ -100,8 +100,8 @@ export default {
       &.side{
       }
       .logo {
-        height: 64px;
-        line-height: 58px;
+        height: 56px;
+        line-height: 56px;
         vertical-align: top;
         display: inline-block;
         padding: 0 12px 0 24px;
@@ -126,6 +126,8 @@ export default {
         display: inline-block;
       }
       .global-header-right{
+        height: 56px;
+        line-height: 56px;
         float: right;
         &.dark{
           color: #fff;

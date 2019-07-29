@@ -1,8 +1,8 @@
 <template>
   <a-dropdown style="display: inline-block; height: 100%; vertical-align: initial" >
     <span style="cursor: pointer">
-      <a-avatar class="avatar" size="small" shape="circle" :src="currUser.avatar"/>
-      <span>{{currUser.name}}</span>
+      <a-avatar class="avatar" size="small" shape="circle" src="http://imgbeta.daling.com/data/files/zin/2019/05/15/11/23/00163E3216A4J5FB1SIA69HI55K.jpg"/>
+      <span>admin</span>
     </span>
     <a-menu style="width: 150px" slot="overlay">
       <a-menu-item>

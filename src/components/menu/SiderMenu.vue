@@ -65,9 +65,9 @@ export default {
       background-color: #001529;
     }
     .logo{
-      height: 64px;
+      height: 56px;
       position: relative;
-      line-height: 64px;
+      line-height: 56px;
       padding-left: 24px;
       -webkit-transition: all .3s;
       transition: all .3s;

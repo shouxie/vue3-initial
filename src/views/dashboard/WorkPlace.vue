@@ -1,8 +1,9 @@
 <template>
   <page-layout :avatar="currUser.avatar">
+    <my-input/>
     <div slot="headerContent">
-      <div class="title">{{currUser.timefix}}，{{currUser.name}}，{{currUser.welcome}}</div>
-      <div>{{currUser.position}}</div>
+      <div class="title">下午好，admin，休息一会儿吧</div>
+      <div>前端 | 达令家</div>
     </div>
     <div slot="extra">
       <a-row>
@@ -27,7 +28,7 @@
                 <a-card :bordered="false" :body-style="{padding: 0}">
                   <a-card-meta :description="item.desc">
                     <div slot="title" class="card-title">
-                      <a-avatar size="small" :src="item.logo" />
+                      <a-avatar size="small" src="../../assets/logo.png" />
                       <a>Alipay</a>
                     </div>
                   </a-card-meta>
@@ -43,7 +44,7 @@
             <a-list>
               <a-list-item :key="index" v-for="(item, index) in activities">
                 <a-list-item-meta>
-                  <a-avatar slot="avatar" :src="item.user.avatar" />
+                  <a-avatar slot="avatar" src="../../assets/logo.png" />
                   <div slot="title" v-html="item.template" />
                   <div slot="description">9小时前</div>
                 </a-list-item-meta>
@@ -73,7 +74,7 @@
               <a-row>
                 <a-col :span="12" v-for="(item, index) in teams" :key="index">
                   <a>
-                    <a-avatar size="small" :src="item.avatar" />
+                    <a-avatar size="small" src="../../assets/logo.png" />
                     <span class="member">{{item.name}}</span>
                   </a>
                 </a-col>
@@ -87,14 +88,14 @@
 </template>
 
 <script>
-import PageHeader from '../../components/page/PageHeader';
+// import PageHeader from '../../components/page/PageHeader';
 import PageLayout from '../../layouts/PageLayout';
 import HeadInfo from '../../components/tool/HeadInfo';
 import Radar from '../../components/chart/Radar';
 
 export default {
     name: 'WorkPlace',
-    components: {Radar, HeadInfo, PageLayout, PageHeader},
+    components: {Radar, HeadInfo, PageLayout},
     data () {
         return {
             projects: [],
@@ -112,32 +113,42 @@ export default {
         this.getProjectList();
         this.getActivites();
         this.getTeams();
+        console.log(this.projects);
     },
     methods: {
         getProjectList () {
-            this.$axios({
-                method: 'get',
-                url: '/project'
-            }).then(res => {
-                this.projects = res.data;
-                this.loading = false;
-            });
+            this.projects = [{
+                desc: '支付宝'
+            }];
+            // this.$axios({
+            //     method: 'get',
+            //     url: '/project'
+            // }).then(res => {
+            //     this.projects = res.data;
+            //     this.loading = false;
+            // });
         },
         getActivites () {
-            this.$axios({
-                method: 'get',
-                url: '/work/activity'
-            }).then(res => {
-                this.activities = res.data;
-            });
+            this.activities = [{
+                template: '<p>111</p>'
+            }];
+            // this.$axios({
+            //     method: 'get',
+            //     url: '/work/activity'
+            // }).then(res => {
+            //     this.activities = res.data;
+            // });
         },
         getTeams () {
-            this.$axios({
-                method: 'get',
-                url: '/work/team'
-            }).then(res => {
-                this.teams = res.data;
-            });
+            this.teams = [
+                {name: 'hhh'}
+            ];
+            // this.$axios({
+            //     method: 'get',
+            //     url: '/work/team'
+            // }).then(res => {
+            //     this.teams = res.data;
+            // });
         }
     }
 };
